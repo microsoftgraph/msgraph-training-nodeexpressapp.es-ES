@@ -13,7 +13,7 @@ Este tutorial le enseña a crear una aplicación Web de node. js Express que usa
 Antes de comenzar esta demostración, debe tener [node. js](https://nodejs.org) instalado en el equipo de desarrollo. Si no tiene node. js, visite el vínculo anterior para las opciones de descarga.
 
 > [!NOTE]
-> Este tutorial se ha escrito con la versión de nodo 10.7.0. Los pasos de esta guía pueden funcionar con otras versiones, pero no se han probado.
+> Este tutorial se ha escrito con la versión de nodo 10.15.3. Los pasos de esta guía pueden funcionar con otras versiones, pero no se han probado.
 
 ## <a name="feedback"></a>Comentarios
 
