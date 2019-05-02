@@ -319,7 +319,7 @@ router.post('/callback',
 );
 ```
 
-ReInicie el servidor y pase por el proceso de inicio de sesión. Deberás volver a la Página principal, pero la interfaz de usuario debe cambiar para indicar que has iniciado sesión.
+Reinicie el servidor y pase por el proceso de inicio de sesión. Deberás volver a la Página principal, pero la interfaz de usuario debe cambiar para indicar que has iniciado sesión.
 
 ![Una captura de pantalla de la Página principal después de iniciar sesión](./images/add-aad-auth-01.png)
 
@@ -333,7 +333,7 @@ En este punto, la aplicación tiene un token de acceso, que se envía `Authoriza
 
 Sin embargo, este token es de corta duración. El token expira una hora después de su emisión. Aquí es donde el token de actualización se vuelve útil. El token de actualización permite que la aplicación solicite un nuevo token de acceso sin que el usuario tenga que iniciar sesión de nuevo.
 
-Para administrar esto, cree un nuevo archivo en la raíz del proyecto denominado `tokens.js` para mantener las funciones de administración de tokens. Agregue el código siguiente.
+Para administrar esto, cree un nuevo archivo en la raíz del proyecto denominado `tokens.js` para mantener las funciones de administración de tokens. Agregue el siguiente código.
 
 ```js
 module.exports = {
