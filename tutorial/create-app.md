@@ -43,15 +43,18 @@ npm install dotenv@6.2.0 moment@2.24.0 connect-flash@0.1.1 express-session@1.15.
 npm install passport-azure-ad@4.0.0 simple-oauth2@2.2.1 @microsoft/microsoft-graph-client@1.5.2
 ```
 
->__USUARIOS DE WINDOWS__
+> [!TIP]
+> Es posible que los usuarios de Windows reciban el siguiente mensaje de error al intentar instalar estos paquetes en Windows.
 >
->Si recibe el siguiente mensaje de error al intentar instalar estos paquetes:
+> ```Shell
+> gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.
+> ```
 >
-> `gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.`
+> Para solucionar el error, ejecute el siguiente comando para instalar las herramientas de compilación de Windows mediante una ventana de terminal con privilegios elevados (Administrador) que instala las herramientas de compilación de VS y Python.
 >
->Ejecute el siguiente comando para instalar las herramientas de compilación de Windows mediante una ventana de terminal con privilegios elevados (Administrador) que instala las herramientas de compilación de VS y también Python.
->
-> `npm install --global --production windows-build-tools`
+> ```Shell
+> npm install --global --production windows-build-tools
+> ```
 
 Ahora, actualice la aplicación para usar `connect-flash` el `express-session` software intermedio y. Abra el `./app.js` archivo y agregue la siguiente `require` instrucción en la parte superior del archivo.
 
