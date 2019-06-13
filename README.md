@@ -22,6 +22,25 @@ Si solo quiere el ejemplo completado que se genera siguiendo este laboratorio, p
 
 - [Proyecto completado](Demos/03-add-msgraph)
 
+## <a name="contributors"></a>Colaboradores
+
+|           Roles            |                                           Autores (es)                                           |
+| -------------------------- | --------------------------------------------------------------------------------------------- |
+| Código/tutorial/soporte técnico | Jason Johnston (Microsoft) [@jasonjoh](//github.com/jasonjoh)                                 |
+| Slides                     | Jeremy Thake (Microsoft) [@jthake-msft](//github.com/jthake-msft)                             |
+| FRECUENTES                         | Andrew Connell (MVP de Microsoft, Voitanos) [@andrewconnell](//github.com/andrewconnell)         |
+| FRECUENTES                         | Julia Turner (MVP de Microsoft, Sympraxis Consulting) [@juliemturner](//github.com/juliemturner) |
+
+## <a name="version-history"></a>Historial de versiones
+
+| Versión |       Fecha       |              Comentarios              |
+| ------- | ---------------- | ---------------------------------- |
+| 1.4     | 24 de mayo de 2019     | actualización del contenido de 2019Q4             |
+| 1.3     | 17 de mayo de 2019     | Pasos de registro de aplicaciones de AAD actualizados |
+| 1.2     | 10 de marzo de 2019   | actualización del contenido de 2019Q3             |
+| 1.1     | 8 de febrero de 2019 | Diapositivas agregadas                       |
+| 1.0     | 2018             | Published                          |
+
 ## <a name="disclaimer"></a>Aviso de declinación de responsabilidades
 
 **Este código se proporciona *tal cual* sin garantías de ningún tipo, ya sea expresa o implícita, incluidas las garantías implícitas de idoneidad para un fin determinado, comerciabilidad o ausencia de infracción.**
