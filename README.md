@@ -22,6 +22,10 @@ Si solo quiere el ejemplo completado que se genera siguiendo este laboratorio, p
 
 - [Proyecto completado](Demos/03-add-msgraph)
 
+## <a name="watch-the-module"></a>Ver el módulo
+
+Este módulo se ha registrado y está disponible en el canal de YouTube del desarrollo de Office: [crear aplicaciones de node. js Express con Microsoft Graph](https://youtu.be/n6q8Cm-pTYY)
+
 ## <a name="contributors"></a>Colaboradores
 
 |           Roles            |                                           Autores (es)                                           |
@@ -33,13 +37,14 @@ Si solo quiere el ejemplo completado que se genera siguiendo este laboratorio, p
 
 ## <a name="version-history"></a>Historial de versiones
 
-| Versión |       Fecha       |              Comentarios              |
-| ------- | ---------------- | ---------------------------------- |
-| 1.4     | 24 de mayo de 2019     | actualización del contenido de 2019Q4             |
-| 1.3     | 17 de mayo de 2019     | Pasos de registro de aplicaciones de AAD actualizados |
-| 1.2     | 10 de marzo de 2019   | actualización del contenido de 2019Q3             |
-| 1.1     | 8 de febrero de 2019 | Diapositivas agregadas                       |
-| 1.0     | 2018             | Published                          |
+| Versión |       Fecha       |                     Comentarios                     |
+| ------- | ---------------- | ------------------------------------------------ |
+| 1.5     | 18 de junio de 2019    | Se actualizó el archivo Léame en grabación de screencast actualizada |
+| 1.4     | 24 de mayo de 2019     | actualización del contenido de 2019Q4                           |
+| 1.3     | 17 de mayo de 2019     | Pasos de registro de aplicaciones de AAD actualizados               |
+| 1.2     | 10 de marzo de 2019   | actualización del contenido de 2019Q3                           |
+| 1.1     | 8 de febrero de 2019 | Diapositivas agregadas                                     |
+| 1.0     | 2018             | Published                                        |
 
 ## <a name="disclaimer"></a>Aviso de declinación de responsabilidades
 
