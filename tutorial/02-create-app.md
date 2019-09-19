@@ -6,7 +6,7 @@ En este ejercicio, usará [Express](http://expressjs.com/) para crear una aplica
 npm install express-generator -g
 ```
 
-Abra la CLI, vaya a un directorio donde tenga derechos para crear archivos y ejecute el siguiente comando para crear una nueva aplicación Express que use manillares [](http://handlebarsjs.com/) como motor de representación.
+Abra la CLI, vaya a un directorio donde tenga derechos para crear archivos y ejecute el siguiente comando para crear una nueva aplicación Express que use [manillares](http://handlebarsjs.com/) como motor de representación.
 
 ```Shell
 express --hbs graph-tutorial
@@ -39,8 +39,8 @@ Antes de continuar, instale algunas gemas adicionales que usará más adelante:
 Ejecute el siguiente comando en su CLI.
 
 ```Shell
-npm install dotenv@8.0.0 moment@2.24.0 connect-flash@0.1.1 express-session@1.16.1
-npm install passport-azure-ad@4.0.0 simple-oauth2@2.2.1 @microsoft/microsoft-graph-client@1.6.0
+npm install dotenv@8.1.0 moment@2.24.0 connect-flash@0.1.1 express-session@1.16.2
+npm install passport-azure-ad@4.1.0 simple-oauth2@2.4.0 @microsoft/microsoft-graph-client@1.7.0
 ```
 
 > [!TIP]
