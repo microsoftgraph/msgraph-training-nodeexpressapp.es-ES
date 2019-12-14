@@ -108,12 +108,10 @@ router.get('/signin',
         response: res,
         prompt: 'login',
         failureRedirect: '/',
-        failureFlash: true
+        failureFlash: true,
+        successRedirect: '/'
       }
     )(req,res,next);
-  },
-  function(req, res) {
-    res.redirect('/');
   }
 );
 
@@ -175,6 +173,7 @@ Para empezar, cree un nuevo archivo que contenga todas las llamadas de Microsoft
 
 ```js
 var graph = require('@microsoft/microsoft-graph-client');
+require('isomorphic-fetch');
 
 module.exports = {
   getUserDetails: async function(accessToken) {
@@ -300,7 +299,7 @@ async function signInComplete(iss, sub, profile, accessToken, refreshToken, para
 }
 ```
 
-Actualice la `callback` ruta en `./routes/auth.js` para quitar la `req.flash` línea con el token de acceso. La `callback` ruta debe tener un aspecto similar al siguiente.
+Actualice la `callback` ruta en `./routes/auth.js` para quitar el `req.flash` y el redireccionamiento manual, y `successRedirect` proporcione el `passport.authenticate`parámetro en. La `callback` ruta debe tener un aspecto similar al siguiente.
 
 ```js
 router.post('/callback',
@@ -309,12 +308,10 @@ router.post('/callback',
       {
         response: res,
         failureRedirect: '/',
-        failureFlash: true
+        failureFlash: true,
+        successRedirect: '/'
       }
     )(req,res,next);
-  },
-  function(req, res) {
-    res.redirect('/');
   }
 );
 ```
