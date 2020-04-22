@@ -8,19 +8,11 @@ En este laboratorio, creará una aplicación web node. js Express mediante el pu
 
 - [Tutorial de Microsoft Graph para node. js](https://docs.microsoft.com/graph/training/node-tutorial)
 
-## <a name="demos"></a>Demostraciones
-
-El [](./Demos) directorio demos de este repositorio contiene copias del proyecto que corresponden a la realización de secciones individuales del tutorial. Si solo quiere demostrar una sección concreta del tutorial, puede comenzar con la versión de la sección anterior.
-
-- [01-Create-App](Demos/01-create-app): se ha completado [la creación de una aplicación web node. js Express](https://docs.microsoft.com/graph/training/node-tutorial?tutorial-step=1)
-- [02-Add-AAD-auth](Demos/02-add-aad-auth): [adición de autenticación de Azure ad](https://docs.microsoft.com/graph/training/node-tutorial?tutorial-step=3) completada
-- [03-Add-MSGraph](Demos/03-add-msgraph): [obtener datos de calendario](https://docs.microsoft.com/graph/training/node-tutorial?tutorial-step=4) completados
-
 ## <a name="completed-sample"></a>Ejemplo completado
 
 Si solo quiere el ejemplo completado que se genera siguiendo este laboratorio, puede encontrarlo aquí.
 
-- [Proyecto completado](Demos/03-add-msgraph)
+- [Proyecto completado](demo)
 
 ## <a name="watch-the-module"></a>Ver el módulo
 
@@ -39,7 +31,8 @@ Este módulo se ha registrado y está disponible en el canal de YouTube del desa
 
 | Versión |       Fecha       |                     Comentarios                     |
 | ------- | ---------------- | ------------------------------------------------ |
-| 1.5     | 18 de junio de 2019    | Se actualizó el archivo Léame en grabación de screencast actualizada |
+| 1.6     | 19 de marzo de 2020   | Tutorial actualizado                               |
+| 1,5     | 18 de junio de 2019    | Se actualizó el archivo Léame en grabación de screencast actualizada |
 | 1.4     | 24 de mayo de 2019     | actualización del contenido de 2019Q4                           |
 | 1.3     | 17 de mayo de 2019     | Pasos de registro de aplicaciones de AAD actualizados               |
 | 1.2     | 10 de marzo de 2019   | actualización del contenido de 2019Q3                           |
