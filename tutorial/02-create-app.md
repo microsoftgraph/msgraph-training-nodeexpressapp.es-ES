@@ -1,22 +1,22 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-En este ejercicio, usará [Express](http://expressjs.com/) para crear una aplicación Web.
+En este ejercicio, usará [Express para](http://expressjs.com/) crear una aplicación web.
 
-1. Abra la CLI, vaya a un directorio donde tenga derechos para crear archivos y ejecute el siguiente comando para crear una nueva aplicación Express que use [manillares](http://handlebarsjs.com/) como motor de representación.
+1. Abre la CLI, navega a un directorio donde tienes derechos para crear archivos y ejecuta el siguiente comando para crear una nueva aplicación express que use [Handlebars](http://handlebarsjs.com/) como motor de representación.
 
     ```Shell
     npx express-generator@4.16.1 --hbs graph-tutorial
     ```
 
-    El generador de Express crea un nuevo directorio al que se llama `graph-tutorial` y scaffolding una aplicación Express.
+    El generador express crea un nuevo directorio llamado `graph-tutorial` y aplica scaffolding a una aplicación Express.
 
-1. Desplácese hasta el `graph-tutorial` Directorio y escriba el siguiente comando para instalar las dependencias.
+1. Vaya al directorio `graph-tutorial` y escriba el siguiente comando para instalar dependencias.
 
     ```Shell
     npm install
     ```
 
-1. Ejecute el siguiente comando para actualizar los paquetes de nodos con vulnerabilidades de las que se ha informado.
+1. Ejecuta el siguiente comando para actualizar paquetes de Node con vulnerabilidades notificadas.
 
     ```Shell
     npm audit fix
@@ -28,51 +28,51 @@ En este ejercicio, usará [Express](http://expressjs.com/) para crear una aplica
     npm install express@4.17.1 http-errors@1.8.0 morgan@1.10.0 debug@4.1.1
     ```
 
-1. Use el siguiente comando para iniciar un servidor Web local.
+1. Use el siguiente comando para iniciar un servidor web local.
 
     ```Shell
     npm start
     ```
 
-1. Abra el explorador y vaya a `http://localhost:3000`. Si todo funciona, verá un mensaje "Bienvenido a exprés". Si no ve ese mensaje, consulte la [Guía de introducción rápida](http://expressjs.com/starter/generator.html).
+1. Abra el explorador y vaya a `http://localhost:3000`. Si todo funciona, verá el mensaje "Bienvenido a Express". Si no ve ese mensaje, consulte la guía de introducción [de Express.](http://expressjs.com/starter/generator.html)
 
-## <a name="install-node-packages"></a>Instalación de paquetes de nodos
+## <a name="install-node-packages"></a>Instalar paquetes de Node
 
-Antes de continuar, instale algunos paquetes adicionales que usará más adelante:
+Antes de seguir adelante, instala algunos paquetes adicionales que usarás más adelante:
 
-- [dotenv](https://github.com/motdotla/dotenv) para cargar los valores de un archivo. env.
-- [momento](https://github.com/moment/moment/) para dar formato a valores de fecha y hora.
-- [Windows-IANA](https://github.com/rubenillodo/windows-iana) para traducir los nombres de zona horaria de Windows a identificadores de zona horaria de IANA.
-- mensajes de error de [Connect-Flash](https://github.com/jaredhanson/connect-flash) a Flash en la aplicación.
-- [Express-Session](https://github.com/expressjs/session) para almacenar valores en una sesión del lado servidor de la memoria.
-- [Express-Promise-enrutador](https://github.com/express-promise-router/express-promise-router) para permitir que los controladores de ruta devuelvan una promesa.
-- [validador expreso](https://github.com/express-validator/express-validator) para analizar y validar datos de formulario.
-- [msal-nodo](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) para autenticar y obtener tokens de acceso.
-- [UUID](https://github.com/uuidjs/uuid) usado por msal-node para generar GUID.
-- [Microsoft-Graph-Client](https://github.com/microsoftgraph/msgraph-sdk-javascript) para realizar llamadas a Microsoft Graph.
-- [isomórfico: fetch](https://github.com/matthew-andrews/isomorphic-fetch) para subllenar la búsqueda para el nodo. Se requiere un polyfill de Fetch para la `microsoft-graph-client` biblioteca. Vea la [biblioteca cliente de JavaScript de Microsoft Graph](https://github.com/microsoftgraph/msgraph-sdk-javascript/wiki/Migration-from-1.x.x-to-2.x.x#polyfill-only-when-required) para obtener más información.
+- [dotenv](https://github.com/motdotla/dotenv) para cargar valores desde un archivo .env.
+- [momento](https://github.com/moment/moment/) para dar formato a los valores de fecha y hora.
+- [windows-iana](https://github.com/rubenillodo/windows-iana) para traducir nombres de zona horaria de Windows a los IDs de zona horaria de IANA.
+- [conectar-flash](https://github.com/jaredhanson/connect-flash) a los mensajes de error de flash en la aplicación.
+- [express-session](https://github.com/expressjs/session) para almacenar valores en una sesión del lado servidor en memoria.
+- [express-promise-router](https://github.com/express-promise-router/express-promise-router) para permitir que los controladores de ruta devuelvan una promesa.
+- [express-validator](https://github.com/express-validator/express-validator) para analizar y validar datos de formulario.
+- [msal-node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) para autenticar y obtener tokens de acceso.
+- [uuid](https://github.com/uuidjs/uuid) usado por msal-node para generar GUID.
+- [microsoft-graph-client para](https://github.com/microsoftgraph/msgraph-sdk-javascript) realizar llamadas a Microsoft Graph.
+- [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) to polyfill the fetch for Node. Se requiere un polyfill de captura para la `microsoft-graph-client` biblioteca. Vea la wiki de la biblioteca [cliente de JavaScript de Microsoft Graph](https://github.com/microsoftgraph/msgraph-sdk-javascript/wiki/Migration-from-1.x.x-to-2.x.x#polyfill-only-when-required) para obtener más información.
 
-1. Ejecute el siguiente comando en su CLI.
+1. Ejecute el siguiente comando en la CLI.
 
     ```Shell
-    npm install dotenv@8.2.0 moment@2.29.1 moment-timezone@0.5.31 connect-flash@0.1.1 express-session@1.17.1 isomorphic-fetch@3.0.0
+    npm install dotenv@8.2.0 moment@2.29.1 moment-timezone@0.5.31 connect-flash@0.1.1 express-session@1.17.1 express-promise-router@4.0.1 isomorphic-fetch@3.0.0
     npm install @azure/msal-node@1.0.0-beta.0 @microsoft/microsoft-graph-client@2.1.1 windows-iana@4.2.1 express-validator@6.6.1 uuid@8.3.1
     ```
 
     > [!TIP]
-    > Es posible que los usuarios de Windows reciban el siguiente mensaje de error al intentar instalar estos paquetes en Windows.
+    > Los usuarios de Windows pueden recibir el siguiente mensaje de error al intentar instalar estos paquetes en Windows.
     >
     > ```Shell
     > gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.
     > ```
     >
-    > Para solucionar el error, ejecute el siguiente comando para instalar las herramientas de compilación de Windows mediante una ventana de terminal con privilegios elevados (Administrador) que instala las herramientas de compilación de VS y Python.
+    > Para resolver el error, ejecute el siguiente comando para instalar Las herramientas de compilación de Windows mediante una ventana de terminal con privilegios elevados (administrador) que instala las herramientas de compilación vs y Python.
     >
     > ```Shell
     > npm install --global --production windows-build-tools
     > ```
 
-1. Actualice la aplicación para usar el `connect-flash` `express-session` software intermedio y. Abra **./app.js** y agregue la siguiente `require` instrucción a la parte superior del archivo.
+1. Actualice la aplicación para usar el `connect-flash` software intermedio `express-session` y. Abra **./app.js** y agregue la siguiente `require` instrucción en la parte superior del archivo.
 
     ```javascript
     const session = require('express-session');
@@ -88,24 +88,24 @@ Antes de continuar, instale algunos paquetes adicionales que usará más adelant
 
 En esta sección, implementará la interfaz de usuario de la aplicación.
 
-1. Abra **./views/layout.HBS** y reemplace todo el contenido por el código siguiente.
+1. Abra **./views/layout.vhs** y reemplace todo el contenido por el código siguiente.
 
     :::code language="html" source="../demo/graph-tutorial/views/layout.hbs" id="LayoutSnippet":::
 
-    Este código agrega un [bootstrap](http://getbootstrap.com/) para los estilos sencillos y la [fuente maravilla](https://fontawesome.com/) para algunos iconos simples. También define un diseño global con una barra de navegación.
+    Este código agrega [Bootstrap para](http://getbootstrap.com/) estilos sencillos y [Font Awesome](https://fontawesome.com/) para algunos iconos simples. También define un diseño global con una barra de navegación.
 
-1. Abra **./Public/Stylesheets/Style.CSS** y reemplace todo el contenido por lo siguiente.
+1. Abra **./public/stylesheets/style.css** y reemplace todo su contenido por lo siguiente.
 
     :::code language="css" source="../demo/graph-tutorial/public/stylesheets/style.css":::
 
-1. Abra **./views/index.HBS** y reemplace su contenido por lo siguiente.
+1. Abra **./views/index.vhs** y reemplace su contenido por lo siguiente.
 
     :::code language="html" source="../demo/graph-tutorial/views/index.hbs" id="IndexSnippet":::
 
-1. Abra el **index.js./Routes/** y reemplace el código existente por lo siguiente.
+1. Abra **./routes/index.js** y reemplace el código existente por lo siguiente.
 
     :::code language="javascript" source="../demo/graph-tutorial/routes/index.js" id="IndexRouterSnippet" highlight="6-10":::
 
-1. Guarde todos los cambios y reinicie el servidor. Ahora, la aplicación debe tener un aspecto muy diferente.
+1. Guarde todos los cambios y reinicie el servidor. Ahora, la aplicación debería tener un aspecto muy diferente.
 
-    ![Una captura de pantalla de la Página principal rediseñada](./images/create-app-01.png)
+    ![Captura de pantalla de la página principal rediseñada](./images/create-app-01.png)
