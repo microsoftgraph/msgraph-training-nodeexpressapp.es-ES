@@ -1,18 +1,18 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-En este ejercicio incorporará Microsoft Graph a la aplicación. Para esta aplicación, usará la biblioteca [de microsoft-graph-client](https://github.com/microsoftgraph/msgraph-sdk-javascript) para realizar llamadas a Microsoft Graph.
+En este ejercicio, incorporará Microsoft Graph en la aplicación. Para esta aplicación, usará la biblioteca [de microsoft-graph-client](https://github.com/microsoftgraph/msgraph-sdk-javascript) para realizar llamadas a Microsoft Graph.
 
-## <a name="get-calendar-events-from-outlook"></a>Obtener eventos de calendario de Outlook
+## <a name="get-calendar-events-from-outlook"></a>Obtener eventos del calendario desde Outlook
 
-1. Abra **./graph.js** y agregue la siguiente función `module.exports` dentro.
+1. Abra **./graph.js** y agregue la siguiente función dentro `module.exports` de .
 
     :::code language="javascript" source="../demo/graph-tutorial/graph.js" id="GetCalendarViewSnippet":::
 
-    Ten en cuenta lo que hace este código.
+    Tenga en cuenta lo que está haciendo este código.
 
-    - La dirección URL a la que se llamará es `/me/calendarview` .
-    - El método agrega el encabezado a la solicitud, lo que provoca que las horas de inicio y finalización se devuelvan en la `header` `Prefer: outlook.timezone` zona horaria del usuario.
-    - El `query` método establece los parámetros y para la vista de `startDateTime` `endDateTime` calendario.
+    - La dirección URL a la que se llamará es `/me/calendarview`.
+    - El método agrega el encabezado a la solicitud, lo que hace que las horas de inicio y finalización se devuelvan en la zona `header` `Prefer: outlook.timezone` horaria del usuario.
+    - El `query` método establece los parámetros y de la vista de `startDateTime` `endDateTime` calendario.
     - El `select` método limita los campos devueltos para cada evento a solo aquellos que la vista usará realmente.
     - El `orderby` método ordena los resultados por hora de inicio.
     - El `top` método limita los resultados a 50 eventos.
@@ -22,7 +22,10 @@ En este ejercicio incorporará Microsoft Graph a la aplicación. Para esta aplic
     ```javascript
     const router = require('express-promise-router')();
     const graph = require('../graph.js');
-    const moment = require('moment-timezone');
+    const addDays = require('date-fns/addDays');
+    const formatISO = require('date-fns/formatISO');
+    const startOfWeek = require('date-fns/startOfWeek');
+    const zonedTimeToUtc = require('date-fns-tz/zonedTimeToUtc');
     const iana = require('windows-iana');
     const { body, validationResult } = require('express-validator');
     const validator = require('validator');
@@ -42,17 +45,16 @@ En este ejercicio incorporará Microsoft Graph a la aplicación. Para esta aplic
           const user = req.app.locals.users[req.session.userId];
           // Convert user's Windows time zone ("Pacific Standard Time")
           // to IANA format ("America/Los_Angeles")
-          // Moment needs IANA format
-          const timeZoneId = iana.findOneIana(user.timeZone);
+          const timeZoneId = iana.findIana(user.timeZone)[0];
           console.log(`Time zone: ${timeZoneId.valueOf()}`);
 
           // Calculate the start and end of the current week
           // Get midnight on the start of the current week in the user's timezone,
           // but in UTC. For example, for Pacific Standard Time, the time value would be
           // 07:00:00Z
-          var startOfWeek = moment.tz(timeZoneId.valueOf()).startOf('week').utc();
-          var endOfWeek = moment(startOfWeek).add(7, 'day');
-          console.log(`Start: ${startOfWeek.format()}`);
+          var weekStart = zonedTimeToUtc(startOfWeek(new Date()), timeZoneId.valueOf());
+          var weekEnd = addDays(weekStart, 7);
+          console.log(`Start: ${formatISO(weekStart)}`);
 
           // Get the access token
           var accessToken;
@@ -68,8 +70,8 @@ En este ejercicio incorporará Microsoft Graph a la aplicación. Para esta aplic
               // Get the events
               const events = await graph.getCalendarView(
                 accessToken,
-                startOfWeek.format(),
-                endOfWeek.format(),
+                formatISO(weekStart),
+                formatISO(weekEnd),
                 user.timeZone);
 
               res.json(events.value);
@@ -121,7 +123,7 @@ En este ejercicio incorporará Microsoft Graph a la aplicación. Para esta aplic
     app.use('/calendar', calendarRouter);
     ```
 
-1. Reinicie el servidor. Inicie sesión y haga clic en el **vínculo** Calendario de la barra de navegación. Si todo funciona, debería ver un volcado JSON de eventos en el calendario del usuario.
+1. Reinicie el servidor. Inicie sesión y haga clic en **el vínculo Calendario** de la barra de navegación. Si funciona todo, debería ver un volcado JSON de eventos en el calendario del usuario.
 
 ## <a name="display-the-results"></a>Mostrar los resultados
 
@@ -131,18 +133,18 @@ Ahora puede agregar una vista para mostrar los resultados de una manera más fá
 
     :::code language="javascript" source="../demo/graph-tutorial/app.js" id="FormatDateSnippet":::
 
-    Esto implementa una aplicación auxiliar [handlebars](http://handlebarsjs.com/#helpers) para dar formato a la fecha ISO 8601 devuelta por Microsoft Graph en algo más fácil de usar.
+    Esto implementa una aplicación auxiliar [Handlebars](http://handlebarsjs.com/#helpers) para dar formato a la fecha ISO 8601 devuelta por Microsoft Graph en algo más fácil de usar.
 
-1. Cree un nuevo archivo en el directorio **./views** denominado **calendar.vhs** y agregue el siguiente código.
+1. Cree un nuevo archivo en el directorio **./views** denominado **calendar.hbs** y agregue el siguiente código.
 
     :::code language="html" source="../demo/graph-tutorial/views/calendar.hbs" id="LayoutSnippet":::
 
     Esto recorrerá una colección de eventos y agregará una fila de tabla para cada uno.
 
-1. Ahora actualice la ruta en **./routes/calendar.js** para usar esta vista. Reemplace la ruta existente por el código siguiente.
+1. Ahora actualice la ruta **en ./routes/calendar.js** para usar esta vista. Reemplace la ruta existente por el código siguiente.
 
     :::code language="javascript" source="../demo/graph-tutorial/routes/calendar.js" id="GetRouteSnippet" highlight="33-36,49,51-54,61":::
 
-1. Guarde los cambios, reinicie el servidor e inicie sesión en la aplicación. Haz clic en **el vínculo** Calendario y la aplicación ahora debería representar una tabla de eventos.
+1. Guarde los cambios, reinicie el servidor e inicie sesión en la aplicación. Haz clic en **el vínculo** Calendario y la aplicación ahora debe representar una tabla de eventos.
 
-    ![Captura de pantalla de la tabla de eventos](./images/add-msgraph-01.png)
+    ![Una captura de pantalla de la tabla de eventos](./images/add-msgraph-01.png)
